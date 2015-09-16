@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'bootstrap-sass', '2.0.0'
+gem 'bootstrap-sass',  '~> 2.3.0.1'
 gem 'bcrypt-ruby','3.0.1'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -11,6 +11,8 @@ group :development, :test do
 	gem 'guard-spork', '0.3.2'
 	gem 'spork', '0.9.0'
 	gem 'annotate', '~> 2.4.1.beta'
+	gem 'cucumber-rails', '1.2.1', require: false
+	gem 'database_cleaner', '0.7.0'
 end
 
 # Use SCSS for stylesheets
