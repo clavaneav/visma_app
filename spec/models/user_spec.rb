@@ -16,6 +16,13 @@ describe User do
     @user = User.new(name: "Example User", email:"user2@example.com",password:"foobar",password_confirmation:"foobar") 
   end
   subject { @user }
+
+  it { should respond_to(:admin) }
+  it { should respond_to(:authenticate) }
+
+  it { should be_valid }
+  it { should_not be_admin }
+
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
@@ -25,6 +32,12 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should be_valid }
 
+  describe "with admin attribute set to 'true'" do
+    before { @user.toggle!(:admin) }
+
+    it { should be_admin }
+  end
+  
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
